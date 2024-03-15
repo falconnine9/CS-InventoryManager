@@ -13,7 +13,8 @@ handles = {
     "show": cmd_show,
     "load": cmd_load,
     "save": cmd_save,
-    "new": cmd_new
+    "new": cmd_new,
+    "delete": cmd_delete
 }
 
 
@@ -51,6 +52,8 @@ def _main():
         
         if cmd[0] in handles.keys():
             out = handles[cmd[0]](cmd, inventories)
+        else:
+            out = "Unknown command"
 
 
 if __name__ == "__main__":

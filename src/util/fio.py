@@ -14,16 +14,14 @@ from obj.inventory import Inventory
 from util.exc import FileIOException
 
 
-def f_saveall(filename, inventories):
-    """Saves a list of multiple inventories to a file"""
-    with open(filename, "w") as f:
-        json.dump([i.serialize() for i in inventories], f)
-
-
-def f_saveone(filename, inventory):
-    """Saves a standalone inventory to a file"""
-    with open(filename, "w") as f:
-        json.dump(inventory.serialize(), f)
+def f_save(filename, inventory):
+    """Saves an inventory or list of inventories to a file"""
+    if type(inventory) == list:
+        with open(filename, "w") as f:
+            json.dump([i.serialize() for i in inventory], f)
+    else:
+        with open(filename, "w") as f:
+            json.dump(inventory.serialize(), f)
 
 
 def f_load(filename):

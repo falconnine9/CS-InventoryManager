@@ -3,6 +3,7 @@ Inventory Manager Project
 Module: util.ui
 Author: Quinn Goplin
 
+UI manipulation utilities
 """
 
 import os
